@@ -28,7 +28,7 @@ public class MainActivityTest {
         introText = tView.getText().toString();
         Assert.assertNotNull(introText);
 
-        Assert.assertTrue("Check intro text", introText.equals("Hello world!"));
+        Assert.assertTrue("Check intro text", introText.equals("Hello world"));
 
     }
 
