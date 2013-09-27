@@ -13,7 +13,7 @@ build:
     - script:
         name: run gradle robolectric
         code: |
-          gradle robolectric
+          gradle robolectric --full-stacktrace --project-cache-dir=$WERCKER_CACHE_DIR
     - script:
         name: run gradle build
         code: |
