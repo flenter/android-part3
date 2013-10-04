@@ -21,6 +21,7 @@ build:
     - script:
         name: run gradle build
         code: |
+          export $GENERATED_BUILD_NR=14
           gradle build --full-stacktrace --project-cache-dir=$WERCKER_CACHE_DIR build -PversionCode=$GENERATED_BUILD_NR -PversionName=1.0.$GENERATED_BUILD_NR
   after-steps:
     # Use the build results
@@ -35,4 +36,4 @@ deploy:
     - script:
         name: upload to testflightapp
         code: |
-          curl http://testflightapp.com/api/builds.json -F file=@AndroidPart3/build/apk/AndroidPart3-debug-unaligned.apk -F api_token="$API_TOKEN" -F team_token="$TEAM_TOKEN" -F notes="Deploy of commit: $WERCKER_GIT_COMMIT from branch: $WERCKER_GIT_BRANCH" -F notify=False -F distribution_lists=''
+          curl http://testflightapp.com/api/builds.json -F file=@AndroidPart3/build/apk/AndroidPart3-debug-unaligned.apk -F api_token="$API_TOKEN" -F team_token="$TEAM_TOKEN" -F notes="Deploy of commit: $WERCKER_GIT_COMMIT from branch: $WERCKER_GIT_BRANCH" -F notify=False -F distribution_lists='' replace=True
