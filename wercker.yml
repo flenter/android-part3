@@ -21,7 +21,7 @@ build:
     - script:
         name: run gradle build
         code: |
-          export $GENERATED_BUILD_NR=14
+          export GENERATED_BUILD_NR=14
           gradle build --full-stacktrace --project-cache-dir=$WERCKER_CACHE_DIR build -PversionCode=$GENERATED_BUILD_NR -PversionName=1.0.$GENERATED_BUILD_NR
   after-steps:
     # Use the build results
