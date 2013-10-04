@@ -29,13 +29,6 @@ def setVersionCode = { ->
     return code
 }
 
-def setVersionName = { ->
-
-    def code = project.hasProperty('versionName') ? versionName : "0.0.0"
-    println "VersionName is set to $code"
-    return code
-}
-
 android {
     compileSdkVersion 18
     buildToolsVersion "17.0.0"
@@ -44,7 +37,6 @@ android {
         minSdkVersion 7
         targetSdkVersion 16
         versionCode setVersionCode()
-        versionName setVersionName()
     }
 }
 
