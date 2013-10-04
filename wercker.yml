@@ -19,9 +19,9 @@ build:
         code: |
           gradle robolectric -i --project-cache-dir=$WERCKER_CACHE_DIR
     - script:
-        name: run gradle build -PversionCode=$GENERATE_BUILD_NR -PversionName=1.0.$GENERATE_BUILD_NR
+        name: run gradle build
         code: |
-          gradle --full-stacktrace --project-cache-dir=$WERCKER_CACHE_DIR build
+          gradle --full-stacktrace --project-cache-dir=$WERCKER_CACHE_DIR build -PversionCode=$GENERATE_BUILD_NR -PversionName=1.0.$GENERATE_BUILD_NR
   after-steps:
     # Use the build results
     - script:
