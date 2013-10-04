@@ -3,6 +3,10 @@ box: wercker/android
 build:
   # The steps that will be executed on build
   steps:
+    - flenter/generate-version:
+        api_key: f1ac623b0eb2f80f49d68eb9c308ec3da5023c2a
+        username: admin
+        for_app: 2
     - script:
         name: show base information
         code: |
@@ -15,7 +19,7 @@ build:
         code: |
           gradle robolectric -i --project-cache-dir=$WERCKER_CACHE_DIR
     - script:
-        name: run gradle build
+        name: run gradle build -PversionCode=$GENERATE_BUILD_NR -PversionName=1.0.$GENERATE_BUILD_NR
         code: |
           gradle --full-stacktrace --project-cache-dir=$WERCKER_CACHE_DIR build
   after-steps:

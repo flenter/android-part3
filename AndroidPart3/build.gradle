@@ -17,6 +17,25 @@ repositories {
     mavenCentral()
 }
 
+/**
+ * Get the version code from command line param
+ *
+ * @return int If the param -PversionCode is present then return int value or -1
+ */
+def setVersionCode = { ->
+
+    def code = project.hasProperty('versionCode') ? versionCode.toInteger() : -1
+    println "VersionCode is set to $code"
+    return code
+}
+
+def setVersionName = { ->
+
+    def code = project.hasProperty('versionName') ? versionName : "0.0.0"
+    println "VersionName is set to $code"
+    return code
+}
+
 android {
     compileSdkVersion 18
     buildToolsVersion "17.0.0"
@@ -24,6 +43,8 @@ android {
     defaultConfig {
         minSdkVersion 7
         targetSdkVersion 16
+        versionCode setVersionCode()
+        versionName setVersionName()
     }
 }
 
@@ -32,3 +53,5 @@ dependencies {
     robolectricCompile group: 'org.robolectric', name: 'robolectric', version: '2.+'
     robolectricCompile group: 'junit', name: 'junit', version: '4.+'
 }
+
+
