@@ -26,16 +26,15 @@ build:
         code: |
           ls -la AndroidPart3/build/apk/
           cp AndroidPart3/build/apk/*.apk $WERCKER_REPORT_ARTIFACTS_DIR
-
 deploy:
   steps:
     - script:
         name: upload to testflight
         code: |
-        curl http://testflightapp.com/api/builds.json
-          -F file=@AndroidPart3/build/apk/AndroidPart3-debug-unaligned.apk
-          -F api_token='$API_TOKEN'
-          -F team_token='$TEAM_TOKEN'
-          -F notes='Deploy of commit: $WERCKER_GIT_COMMIT from branch: $WERCKER_GIT_BRANCH'
-          -F notify=True
-          -F distribution_lists='developer'
+          curl http://testflightapp.com/api/builds.json
+            -F file=@AndroidPart3/build/apk/AndroidPart3-debug-unaligned.apk
+            -F api_token='$API_TOKEN'
+            -F team_token='$TEAM_TOKEN'
+            -F notes='Deploy of commit: $WERCKER_GIT_COMMIT from branch: $WERCKER_GIT_BRANCH'
+            -F notify=True
+            -F distribution_lists='developer'
