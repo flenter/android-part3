@@ -15,10 +15,10 @@ build:
           echo $ANDROID_HOME
           echo $ANDROID_BUILD_TOOLS
           echo $ANDROID_UPDATE_FILTER
-#     - script:
-#         name: run gradle robolectric
-#         code: |
-#           gradle robolectric -i --project-cache-dir=$WERCKER_CACHE_DIR
+    - script:
+        name: run gradle robolectric
+        code: |
+          gradle robolectric -i --project-cache-dir=$WERCKER_CACHE_DIR
     - script:
         name: run gradle build
         code: |
