@@ -11,6 +11,7 @@ build:
         name: show base information
         code: |
           gradle -v
+
           echo $ANDROID_HOME
           echo $ANDROID_BUILD_TOOLS
           echo $ANDROID_UPDATE_FILTER
