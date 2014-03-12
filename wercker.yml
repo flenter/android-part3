@@ -20,6 +20,10 @@ build:
         code: |
           gradle robolectric -i --project-cache-dir=$WERCKER_CACHE_DIR
     - script:
+        name: run lint
+        code: |
+          lint
+    - script:
         name: run gradle build
         code: |
           export GENERATED_BUILD_NR=14
