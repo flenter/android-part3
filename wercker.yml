@@ -22,7 +22,7 @@ build:
     - script:
         name: run lint
         code: |
-          lint
+          lint .
     - script:
         name: run gradle build
         code: |
