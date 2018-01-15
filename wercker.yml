@@ -37,6 +37,7 @@ build:
         code: |
           ls -la AndroidPart3/build/apk/
           cp AndroidPart3/build/apk/*.apk $WERCKER_REPORT_ARTIFACTS_DIR
+
 deploy:
   steps:
     - script:
